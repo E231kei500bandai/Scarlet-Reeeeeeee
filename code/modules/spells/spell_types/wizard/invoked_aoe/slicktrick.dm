@@ -20,7 +20,8 @@
 	glow_color = GLOW_COLOR_DISPLACEMENT
 	glow_intensity = GLOW_INTENSITY_HIGH //Big warning as its AoE
 
-	var/slip_duration = 15 SECONDS
+	var/slip_duration = 8 SECONDS
+	var/tile_effect_duration = 15 SECONDS
 	var/slip_effect_type = TURF_WET_LUBE
 	var/area_of_effect_radius = 1 // 1 = 3x3
 
@@ -43,13 +44,13 @@
 			O.ClearWet()
 
 			// Create a new one with our custom callback for slipping
-			O.AddComponent(/datum/component/wet_floor, slip_effect_type, slip_duration, 0, 120 SECONDS, FALSE)
+			O.AddComponent(/datum/component/wet_floor, slip_effect_type, tile_effect_duration, 0, 120 SECONDS, FALSE)
 
 			// Replace the slippery component with our own that has a custom callback
 			var/datum/component/slippery/S = O.GetComponent(/datum/component/slippery)
 			if(S)
 				qdel(S)
-			O.LoadComponent(/datum/component/slippery, 80, SLIDE | GALOSHES_DONT_HELP, CALLBACK(src, PROC_REF(after_slip)))
+			O.LoadComponent(/datum/component/slippery, slip_duration, SLIDE | GALOSHES_DONT_HELP, CALLBACK(src, PROC_REF(after_slip)))
 
 			// Create a visual indicator
 			new /obj/effect/temp_visual/slick_warning(O)
