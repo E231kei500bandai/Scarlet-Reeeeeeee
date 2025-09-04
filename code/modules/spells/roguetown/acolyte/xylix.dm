@@ -203,9 +203,10 @@
 /obj/effect/proc_holder/spell/invoked/slick_trick
 	name = "Slick Trick"
 	releasedrain = 30
-	chargedrain = 0
-	chargetime = 2
-	range = 12
+	chargedrain = 1
+	chargetime = 3 SECONDS //long charge time makes it possible to counter by charging the user
+	range = 4 //short range to make it less OP
+	ignore_los = FALSE
 	no_early_release = TRUE
 	movement_interrupt = TRUE
 	chargedloop = /datum/looping_sound/invokeholy
@@ -213,6 +214,12 @@
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE
 	recharge_time = 45 SECONDS
+	invocation = "The ground betrays thee!" //Makes it a bit more obvious what it does
+	invocation_type = "shout"
+	glow_color = GLOW_COLOR_DISPLACEMENT
+	glow_intensity = GLOW_INTENSITY_HIGH //Big warning as its AoE
+	chargedloop = /datum/looping_sound/invokegen
+	warnie = "sydwarning"
 
 /obj/effect/proc_holder/spell/invoked/slick_trick/cast(list/targets, mob/user = usr)
 	var/turf/T = get_turf(targets[1])
