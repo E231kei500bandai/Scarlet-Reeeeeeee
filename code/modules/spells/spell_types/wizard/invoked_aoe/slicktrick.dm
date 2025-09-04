@@ -58,21 +58,6 @@
 	if(istype(L))
 		L.visible_message("<span class='warning'>[L] slips on the slick surface!</span>",
 						  "<span class='warning'>You slip on a magically slick surface!</span>")
-
-		// Play various laughter sounds from Xylix the trickster god
-		var/list/laugh_sounds = list(
-			'sound/vo/male/jester/laugh (1).ogg',
-			'sound/vo/male/jester/laugh (2).ogg',
-			'sound/vo/male/jester/laugh (3).ogg',
-			'sound/vo/male/evil/laugh (1).ogg',
-			'sound/vo/male/evil/laugh (2).ogg'
-		)
-
-		// Play all laughter sounds at the same time for a chorus of laughter
-		var/turf/T = get_turf(L)
-		for(var/sound_file in laugh_sounds)
-			playsound(T, sound_file, 50, TRUE, -1) // Lower volume to avoid being too loud
-
 		return TRUE
 	return FALSE
 
