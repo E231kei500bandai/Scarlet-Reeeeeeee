@@ -2251,6 +2251,13 @@
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/warden.dmi'
 	icon_state = "skullmet_bear"
 
+/obj/item/clothing/head/roguetown/helmet/sallet/warden/rat
+	name = "warden's rouskull helm"
+	desc = "The large, intimidating skull of the rare giant rous, plated with steel on its inner side and given padding - paired together with a steel maille mask and worn with a linen shroud. Such trophies are associated with life-long sewer dwellers and their descendants."
+	icon = 'icons/roguetown/clothing/special/warden.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/warden.dmi'
+	icon_state = "skullmet_rat"
+
 /obj/item/clothing/head/roguetown/roguehood/warden
 	name = "warden's hood"
 	desc = "A hunter's leather hood with two linen layers, sewn larger than usual to accommodate a helmet - or an animal's skull."
@@ -2352,6 +2359,20 @@
 	block2add = FOV_BEHIND
 	smeltresult = /obj/item/ingot/steel
 	smelt_bar_num = 2
+
+// new ruma merc shit
+/obj/item/clothing/head/roguetown/roguehood/shalal/hijab/kazengunese
+	name = "kazengunese headwrap"
+	desc = "A cloth hood of Kazengunese origin, which fully conceals one's face. Painted black for the wearer to blend into the night."
+	icon = 'icons/roguetown/clothing/special/ninjahood.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/ninjahood.dmi'
+	icon_state = "ninjahood"
+	item_state = "ninjahood"
+	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
+	max_integrity = 150
+	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
+	armor = ARMOR_HEAD_PSYDON //basically the same as a warscholar hood
+	color = CLOTHING_BLACK
 
 // the wizard helmet
 /obj/item/clothing/head/roguetown/helmet/bascinet/wizardhelm
